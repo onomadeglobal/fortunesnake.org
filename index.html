@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="canonical" href="./" />
+	
+    <title>Fortune Snake | Jogo da Cobrinha que Ganha Dinheiro | Aposta Online</title>
+<meta name="description" />
+  <meta property="og:image" content="./assets/img/logo.png" />
+	<meta property="og:image:width" content="512" />
+	<meta property="og:image:height" content="512" />
+	<meta property="og:image:type" content="image/png" />`
+	
+	<link rel="icon" href="./assets/img/logo.png">
+
+
+	
+    <style>
+
+*{
+    box-sizing: border-box;
+}
+
+		body {
+			margin: 0;
+			padding: 0;
+			margin-top: -24px;
+			font-family: Poppins, sans-serif;
+			
+		}
+
+
+.content {
+    width: 100vw;
+    height: 100vh;
+    background: url("./assets/img/bg.png");
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: cover;
+    backdrop-filter: blur(5px);
+	display: flex;
+    justify-content: center;
+    
+
+}
+.container{
+   
+    width: 430px;
+    max-width: 600px;
+    height: 100%;
+    background: url("./assets/img/arena.jpeg");
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: cover;
+}
+.loading-container-port {
+    /* top: 670px; */
+}
+.loading-container-land, .loading-container-land-pc, .loading-container-port {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    position: absolute;
+    right: 0;
+    bottom: 250px;
+}
+.progress-bar-container-land, .progress-bar-container-land-pc, .progress-bar-container-port {
+    background-color: initial;
+    height: 13px;
+    position: relative;
+    width: 212px;
+}
+.progress-bar-background {
+    background-color: #111;
+    border-radius: 3.5px;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.progress-bar-fill-container {
+    bottom: 0.87px;
+    left: 0.87px;
+    position: absolute;
+    right: 0.87px;
+    top: 0.87px;
+}
+@keyframes animate-stripes {
+    0% {
+        background-position: 0 0;
+        width: 0;
+    }
+  
+    100% {
+        background-position: 34.7px 0;
+        width: 100%;
+    }
+}
+@keyframes loading {
+    0% {
+        width: 0;
+    }
+  
+    100% {
+        width: 100%;
+    }
+}
+.stripes {
+    animation-duration: 2s;
+    animation-name: animate-stripes;
+    animation-fill-mode:forwards;
+    /* animation-timing-function: linear; */
+    background-image: linear-gradient(-75deg,hsla(0,0%,100%,0) 35%,hsla(0,0%,100%,.1) 0,hsla(0,0%,100%,.1) 75%,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,0));
+  
+}
+.progress-bar-fill {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background-color: #30a2d0;
+    background-size: 8.7px 100%;
+    border-radius: 3.5px;
+    height: 100%;
+    position: absolute;
+    width: 0;
+}
+.footer-container, .footer-mask-container-land, .footer-mask-container-port {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+.footer-container {
+    display: flex;
+    height: 77px;
+}
+.footer-container, .footer-mask-container-land, .footer-mask-container-port {
+    bottom: 0;
+    position: absolute;
+    width: 430px;
+}
+.footer-mask-container-port {
+    display: flex;
+    flex-direction: column;
+    height: 219.3px;
+}
+.footer-mask-color {
+    background-image: linear-gradient(180deg,hsla(0,0%,100%,0),#fff);
+}
+.footer-mask {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.footer-mask-black {
+    background-image: linear-gradient(180deg,transparent,rgba(0,0,0,.3));
+}
+.footer-mask {
+    height: 100%;
+    position: absolute;
+    width: 430px;
+}
+.footer-image-container {
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+}
+.footer-image-port {
+    height: 126px;
+    width: 430px;
+}
+.footer-image-land, .footer-image-land-pc, .footer-image-port {
+    background-image: url(./assets/img/footer.png);
+    background-position: 50%;
+    background-size: cover;
+    position: absolute;
+   
+}
+@media (max-width:600px) {
+    .footer-mask, .footer-image-port, .container{
+        width: 100vw;
+    }
+    .footer-container, .footer-mask-container-land, .footer-mask-container-port{
+        width: 100vw; 
+    }
+}
+@media (min-height:600px) {
+    .container {
+     
+   
+     
+        background-position: 100% 60%;
+      
+    }
+    .loading-container-port {
+        /* top: 400px; */
+    }
+}
+
+        .btn {
+            padding: 15px 70px;
+            color: #fff;
+            background-color: rgb(255 2 48);
+            border:2px solid rgba(0,0,0,.15);
+            border-radius: 8px;
+            background-image: linear-gradient(180deg,hsla(0,0%,100%,.5),hsla(0,0%,100%,0));
+            background-origin: border-box;
+            font-weight: 600;
+            font-size: 14px;
+			cursor: pointer;
+        
+        }
+	     .btn2 {
+            padding: 15px 70px;
+            color: #fff;
+            background-color: rgb(32 195 34);
+            border:2px solid rgba(0,0,0,.15);
+            border-radius: 8px;
+            background-image: linear-gradient(180deg,hsla(0,0%,100%,.5),hsla(0,0%,100%,0));
+            background-origin: border-box;
+            font-weight: 600;
+            font-size: 14px;
+        
+        }
+
+	    
+        header {
+			background-color: rgb(255 2 48);
+			background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, 0));
+			color: #fff;
+			padding: 5px 0px;
+			display: flex;
+			justify-content: center;
+			font-weight: 400;
+			font-size: 11px;
+			flex-direction: row;
+			align-items: center;
+		}
+
+		header h1 {
+			display: none;
+		}
+
+		header p {
+			padding: 0px 11px;
+			background-color: #11111170; 
+			padding: 10px; 
+			border-radius: 4px 21px;
+			margin: 0px 11px;
+		}
+
+.conteudo {
+	background-color: #f2f2f2;
+}
+
+.artigo {
+	background-color: #fff;
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 7px 29px;
+	font-family: Poppins;
+	border-radius: 24px;
+	
+}
+
+	
+.cta-button {
+    display: inline-block;
+    background-color: #14ba29;
+    color: #fff;
+    padding: 11px 70px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    margin: 14px;
+	background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, 0));
+    background-origin: border-box;
+	cursor: pointer;
+	border: 2px solid rgba(0, 0, 0, .15);
+}
+
+.video-section {
+    text-align: center;
+    margin: 30px 0;
+	font-size: 14px;
+}
+
+.video-section img {
+    border-radius: 14px;
+}
+
+footer {
+	background-color: #f2f2f2;
+	font-size: 11px;
+	padding: 30px;
+	text-align: center;
+
+}
+
+
+    </style>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	
+	<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@graph": [
+			{
+			  "@type": "Review",
+			  "itemReviewed": {
+				"@type": "Game",
+				"name": "Fortune Snake",
+				"url": "https://fortunesnake.org/",
+				"image": "https://fortunesnake.org/assets/img/logo.png",
+				"description": "Saiba tudo sobre o Jogo da Cobrinha que Ganha Dinheiro o Fortune Snake. Veja como jogar e ganhar com realizando apostas online em um cassino legalizado e regulamentado no Brasil"
+			  },
+			  "author": {
+				"@type": "Organization",
+				"name": "O Mestre do SEO 😎"
+			  },
+			  "reviewRating": {
+				"@type": "Rating",
+				"ratingValue": "4.7",
+				"bestRating": "5",
+				"worstRating": "1"
+			  },
+			  "reviewBody": "Eu sou o Mestre do SEO e estou aqui para lhe dizer que eu sou foda!",
+			  "datePublished": "2025-06-05"
+			},
+			{
+			  "@type": "VideoObject",
+			  "name": "Como Jogar Fortune Snake | Estratégia Oculta e Secreta dos Top Jogadores",
+			  "description": "Veja nesse vídeo, como jogar e ganhar dinheiro no Fortune Snake o Jogo da Cobrinha. Utilizando essa estratégia Oculta e Secreta dos Top Players.",
+			  "thumbnailUrl": "https://fortunesnake.org/assets/video/capa.jpg",
+			  "uploadDate": "2025-06-05",
+			  "contentUrl": "https://fortunesnake.org/assets/video/new.mp4",
+			  "duration": "PT3M45S",
+			  "publisher": {
+				"@type": "Organization",
+				"name": "O Mestre do SEO 😎",
+				"logo": {
+				  "@type": "ImageObject",
+				  "url": "https://fortunesnake.org/assets/img/logo.png"
+				}
+			  }
+			}
+		  ]
+		}
+		</script>
+		
+	
+
+</head>
+
+<body>
+
+
+
+<div class="content">
+
+    <div class="container">
+    <div id="loading-container" class="loading-container-port">
+		<input onclick="redirecionar()" class="btn" name="btn" type="button" value="Começar" />
+	</div>
+</div>
+</div>
+</div>
+<header> 
+
+	<h1>Fortune Snake: O Jogo da Cobrinha que Ganha Dinheiro</h1>
+	<img src="assets/img/logo.png" width="50" style="border-radius: 7px; margin: 11px 0px;" alt="Fortune Snake o Jogo da Cobrinha que Ganha Dinheiro" title="Fortune Snake o Jogo da Cobrinha que Ganha Dinheiro">
+	<center><p style="">Jogue Fortune Snake com Responsabilidade!<br><b>Jogo para Maiores de 18 anos.</b></p></center>
+</header>
+
+<div class="conteudo">
+<div class="artigo">
+
+	  
+	  <nav>
+		<h2>Índice do Conteúdo</h2>
+		<p>
+			<img alt="Sobre o Jogo" title="Sobre o Jogo" height="124" src="assets/img/logo.png" style="float:right; border-radius: 7px;" width="124" />
+			</p>
+			
+			<ul>
+				<li><a href="#oque-e" onclick="redirecionar()" title="O que é">O que &eacute;</a></li>
+				<li><a href="#oque-e" onclick="redirecionar()" title="Como Jogar">Como Jogar</a></li>
+				<li><a href="#como-funciona" onclick="redirecionar()" title="Como Funciona">Como funciona</a></li>
+				<li><a href="#ganhar-dinheiro" onclick="redirecionar()" title="Como Ganhar">Como Ganhar</a></li>
+				<li><a href="#onde-jogar" onclick="redirecionar()" title="Onde Jogar">Onde jogar</a></li>
+				<li><a href="#dicas" onclick="redirecionar()" title="Dicas e Estratégias">Dicas</a></li>
+				<li><a href="#confiavel" onclick="redirecionar()" title="O Jogo é Confiável?">O Jogo &eacute; confi&aacute;vel?</a></li>
+				<li><a href="#semelhantes" onclick="redirecionar()" title="Slots">Jogos Semelhantes</a></li>
+				<li><a href="#conclusao" onclick="redirecionar()" title="Link do Site Oficial">Verido</a></li>
+			</ul>
+			
+	  </nav>
+	  
+	  <article>
+		<section id="oque-e">
+		  <h2>O que é o Fortune Snake?</h2>
+		  <p>O <strong>Fortune Snake</strong> é um jogo online que vem ganhando destaque entre os brasileiros por prometer uma forma divertida e, ao mesmo tempo, lucrativa de entretenimento. Também conhecido como <strong>jogo da cobrinha que ganha dinheiro</strong>, ele mistura nostalgia com recompensas em dinheiro real.</p>
+		</section>
+	  
+		<section id="como-funciona">
+		  <h2>Como funciona o jogo da cobrinha?</h2>
+		  <p>No Fortune Snake, você controla uma cobrinha que precisa coletar moedas ou símbolos dentro de um espaço limitado, sem bater nas bordas ou em si mesma. Cada partida pode render prêmios em dinheiro, dependendo da sua pontuação e do valor apostado.</p>
+		</section>
+
+		
+
+<section id="como-jogar">
+    <h2>🎮 Como Jogar o Fortune Snake</h2>
+
+	<p>Veja agora tudo que precisa saber para Jogar o Fortune Snake da Forma Correta! Veja a seguir como se joga o jogo da cobrinha:</p>
+
+	<video  style="display: none;"
+  controls 
+  width="100%" 
+  poster="assets/video/capa.jpg" 
+  itemprop="video" 
+  itemscope 
+  itemtype="https://schema.org/VideoObject">
+  
+  <source src="assets/video/new.mp4" type="video/mp4">
+  Seu navegador não suporta o vídeo HTML5.
+
+  <!-- Marcação Schema.org embutida -->
+  <meta itemprop="name" content="Como Jogar Fortune Snake e Ganhar Dinheiro | Estratégia dos Top Players">
+  <meta itemprop="description" content="Veja como utilizar a estratégia dos top players para ganhar muito dinheiro jogando Fortune Snake o Jogo da Cobrinha.">
+  <meta itemprop="thumbnailUrl" content="assets/video/capa.jpg">
+  <meta itemprop="uploadDate" content="2025-06-05">
+  <meta itemprop="contentUrl" content="https://fortunesnake.org/videos/tutorial.mp4">
+  <meta itemprop="duration" content="PT3M45S">
+</video>
+
+    <table border="1" cellspacing="0" cellpadding="8">
+      <thead>
+        <tr>
+          <th>Etapa</th>
+          <th>Ação a ser realizada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Passo 1</td><td>Cadastre-se em uma plataforma confiável</td></tr>
+        <tr><td>Passo 2</td><td>Deposite via PIX, cartão ou boleto</td></tr>
+        <tr><td>Passo 3</td><td>Escolha o jogo “Fortune Snake”</td></tr>
+        <tr><td>Passo 4</td><td>Defina o valor da aposta (R$1 a R$500)</td></tr>
+        <tr><td>Passo 5</td><td>Inicie a rodada e controle a cobrinha</td></tr>
+        <tr><td>Passo 6</td><td>Saia antes da explosão para lucrar</td></tr>
+        <tr><td>Passo 7</td><td>Se for atingido, você perde a aposta</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="estrategias">
+    <h2>🧠 Estratégias para Ganhar no Fortune Snake</h2>
+    <ul>
+      <li><strong>Técnica do “bate e corre”</strong>: aposte baixo e saque rápido</li>
+      <li><strong>Multiplicação consciente</strong>: arrisque só o que pode perder</li>
+      <li><strong>Controle de banca</strong>: use até 10% do saldo por jogada</li>
+      <li><strong>Evite jogar em sequência</strong>: observe padrões de perda</li>
+    </ul>
+  </section>
+
+  <section id="comparativo">
+    <h2>📊 Comparativo: Fortune Snake vs Fortune Tiger</h2>
+    <table border="1" cellspacing="0" cellpadding="8">
+      <thead>
+        <tr>
+          <th>Característica</th>
+          <th>🐍 Fortune Snake</th>
+          <th>🐅 Fortune Tiger</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Tipo de jogo</td><td>Arcade com aposta</td><td>Slot Machine</td></tr>
+        <tr><td>Tema</td><td>Cobrinha retrô</td><td>Tigre da sorte chinês</td></tr>
+        <tr><td>Jogabilidade</td><td>Manual e interativa</td><td>Automática</td></tr>
+        <tr><td>Multiplicadores</td><td>Dinâmicos (baseado na distância)</td><td>Fixos (até 888x)</td></tr>
+        <tr><td>Risco</td><td>Médio a alto</td><td>Alto</td></tr>
+        <tr><td>Público ideal</td><td>Jogadores ativos</td><td>Jogadores casuais</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+	  
+		<section id="ganhar-dinheiro">
+		  <h2>É possível ganhar dinheiro de verdade?</h2>
+		  <p>Sim, é possível ganhar dinheiro jogando Fortune Snake, desde que você jogue em uma <strong>plataforma confiável</strong>. Os ganhos variam de acordo com o valor das apostas e sua performance no jogo. Porém, vale lembrar que se trata de um jogo de aposta, então há riscos envolvidos.</p>
+		</section>
+	  
+		<section id="onde-jogar">
+		  <h2>Onde jogar Fortune Snake com segurança?</h2>
+		  <p>Para jogar com segurança, é fundamental escolher uma <strong>plataforma licenciada e reconhecida</strong> no mercado. Dê preferência a sites que oferecem suporte ao cliente, pagamentos rápidos via PIX e avaliações positivas de outros usuários.</p>
+		  <p><strong>Dica:</strong> Evite links duvidosos e sempre pesquise antes de fazer um depósito.</p>
+		</section>
+	  
+		<section id="dicas">
+		  <h2>Dicas para se dar bem no Fortune Snake</h2>
+		  <ul>
+			<li>Comece apostando valores baixos para entender a dinâmica do jogo.</li>
+			<li>Use estratégias simples, como manter a cobra no centro.</li>
+			<li>Fique atento ao tempo de reação: o jogo acelera com o tempo.</li>
+			<li>Defina um limite de perdas para não comprometer seu financeiro.</li>
+		  </ul>
+		</section>
+	  
+		<section id="confiavel">
+		  <h2>Fortune Snake é confiável?</h2>
+		  <p>O jogo em si é apenas uma ferramenta de entretenimento. A confiabilidade está na <strong>plataforma onde você joga</strong>. Muitas pessoas relatam ganhos, mas também há riscos de perder dinheiro. Por isso, jogue com responsabilidade.</p>
+		</section>
+	  
+		<section id="semelhantes">
+		  <h2>Jogos semelhantes ao Fortune Snake</h2>
+		  <p>Se você gosta do estilo do Fortune Snake, aqui estão outros jogos com temática parecida ou com proposta de ganhar dinheiro jogando:</p>
+	  
+		  <table border="1" cellpadding="10" cellspacing="0">
+			<thead>
+			  <tr>
+				<th>Nome do Jogo</th>
+				<th>Link</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<td>Fortune Tiger</td>
+				<td><a href="https://jogodotigrinho.com/" title="Tigrinho">Saiba mais</a></td>
+			  </tr>
+			  <tr>
+				<td>Fortune Rabbit</td>
+				<td><a href="#" onclick="redirecionar()" title="Rabbit">Saiba mais</a></td>
+			  </tr>
+			  <tr>
+				<td>Spaceman</td>
+				<td><a href="#" onclick="redirecionar()" title="Space Man">Saiba mais</a></td>
+			  </tr>
+			  <tr>
+				<td>Mines</td>
+				<td><a href="#" onclick="redirecionar()" title="Mines">Saiba mais</a></td>
+			  </tr>
+			  <tr>
+				<td>Aviator</td>
+				<td><a href="#" onclick="redirecionar()" title="Aviator">Saiba mais</a></td>
+			  </tr>
+			</tbody>
+		  </table>
+		</section>
+
+		
+
+
+	  
+		<section id="conclusao">
+		  <h2>Link Oficial</h2>
+		  <p>O <strong>Fortune Snake</strong> é uma ótima opção para quem busca uma forma divertida de tentar ganhar dinheiro online. Mas lembre-se: todo jogo de aposta exige cautela. Aposte com consciência, escolha plataformas seguras e divirta-se!</p>
+		</section>
+
+		<div class="video-section">
+			<img src="assets/img/fortunesnake-banner.png" alt="Fortune Snake Link Oficial" title="Fortune Snake Link Oficial" width="250" heigth="100%">
+			
+			<p>Plataforma Oficial do Fortune Snake. Confiável, Legalizada e Regulamentada no Brasil. Toque no botão abaixo para acessar a bet!</p>
+		
+			<button onclick="redirecionar()" class="cta-button">Jogue Agora</button>
+			
+			
+			<p>Jogue com Responsabilidade.</p>
+		</div>
+	  </article>
+	  
+
+	  </div>
+	  </div>
+	  <footer>
+		<img src="assets/img/logo.png" width="70" height="70" style="border-radius: 7px;" alt="Fortune Snake | Jogo da Cobrinha que Ganha Dinheiro">
+		<p><b>Fortune Snake | Site Oficial</b><br>© 2025 Todos os direitos reservados.</p>
+		<p><a href="#" onclick="redirecionar()" title="Política de Privacidade">Política de Privacidade</a>  | <a href="#" onclick="redirecionar()" title="">Termos e Condições</a></p>
+	  </footer>
+
+
+	  <script>
+		function redirecionar() {
+		  window.location.href = "https://jogodotigrinho.com/cadastro"; // Altere o link aqui
+		}
+	  </script>
+
+	  </body>
+	  </html>
+	  
