@@ -1,18 +1,27 @@
 *{
     box-sizing: border-box;
 }
-body{
-    margin: 0;
-    padding: 0;
+
+		body {
+			margin: 0;
+			padding: 0;
+			margin-top: -24px;
+			font-family: Poppins, sans-serif;
+			
+		}
+
+
+.content {
     width: 100vw;
     height: 100vh;
-    background: url("../img/back.jpg");
+    background: url("https://fortunesnake.org/assets/img/bg.png");
     background-repeat: no-repeat;
     background-position: 100% 0;
     background-size: cover;
     backdrop-filter: blur(5px);
-    display: flex;
+	display: flex;
     justify-content: center;
+    
 
 }
 .container{
@@ -20,7 +29,7 @@ body{
     width: 430px;
     max-width: 600px;
     height: 100%;
-    background: url("../img/arena.jpg");
+    background: url("https://fortunesnake.org/assets/img/arena.jpeg");
     background-repeat: no-repeat;
     background-position: 100% 0;
     background-size: cover;
@@ -35,7 +44,7 @@ body{
     left: 0;
     position: absolute;
     right: 0;
-    bottom: 150px;
+    bottom: 250px;
 }
 .progress-bar-container-land, .progress-bar-container-land-pc, .progress-bar-container-port {
     background-color: initial;
@@ -142,7 +151,7 @@ body{
     width: 430px;
 }
 .footer-image-land, .footer-image-land-pc, .footer-image-port {
-    background-image: url(../img/footer.png);
+    background-image: url(https://fortunesnake.org/assets/img/footer.png);
     background-position: 50%;
     background-size: cover;
     position: absolute;
@@ -167,4 +176,107 @@ body{
     .loading-container-port {
         /* top: 400px; */
     }
+}
+
+        .btn {
+            padding: 15px 70px;
+            color: #fff;
+            background-color: rgb(255 2 48);
+            border:2px solid rgba(0,0,0,.15);
+            border-radius: 8px;
+            background-image: linear-gradient(180deg,hsla(0,0%,100%,.5),hsla(0,0%,100%,0));
+            background-origin: border-box;
+            font-weight: 600;
+            font-size: 14px;
+			cursor: pointer;
+        
+        }
+	     .btn2 {
+            padding: 15px 70px;
+            color: #fff;
+            background-color: rgb(32 195 34);
+            border:2px solid rgba(0,0,0,.15);
+            border-radius: 8px;
+            background-image: linear-gradient(180deg,hsla(0,0%,100%,.5),hsla(0,0%,100%,0));
+            background-origin: border-box;
+            font-weight: 600;
+            font-size: 14px;
+        
+        }
+
+	    
+        header {
+			background-color: rgb(255 2 48);
+			background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, 0));
+			color: #fff;
+			padding: 5px 0px;
+			display: flex;
+			justify-content: center;
+			font-weight: 400;
+			font-size: 11px;
+			flex-direction: row;
+			align-items: center;
+		}
+
+		header h1 {
+			display: none;
+		}
+
+		header p {
+			padding: 0px 11px;
+			background-color: #11111170; 
+			padding: 10px; 
+			border-radius: 4px 21px;
+			margin: 0px 11px;
+		}
+
+.conteudo {
+	background-color: #f2f2f2;
+}
+
+.artigo {
+	background-color: #fff;
+	max-width: 700px;
+	margin: 0 auto;
+	padding: 7px 29px;
+	font-family: Poppins;
+	border-radius: 24px;
+	
+}
+
+	
+.cta-button {
+    display: inline-block;
+    background-color: #14ba29;
+    color: #fff;
+    padding: 11px 70px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    margin: 14px;
+	background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, 0));
+    background-origin: border-box;
+	cursor: pointer;
+	border: 2px solid rgba(0, 0, 0, .15);
+}
+
+.video-section {
+    text-align: center;
+    margin: 30px 0;
+	font-size: 14px;
+}
+
+.video-section img {
+    border-radius: 14px;
+}
+
+footer {
+	background-color: #f2f2f2;
+	font-size: 11px;
+	padding: 30px;
+	text-align: center;
+
 }
